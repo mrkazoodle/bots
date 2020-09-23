@@ -206,7 +206,7 @@ class Message(object):
             if field_definition[ISFIELD]:    #if field (no composite)
                 if field_definition[MAXREPEAT] == 1:    #if non-repeating
                     value = noderecord.get(field_definition[ID])
-                    if not value:
+                    if value is None:
                         if field_definition[MANDATORY]:
                             self.add2errorlist(_('[F02]%(linpos)s: Record "%(mpath)s" field "%(field)s" is mandatory.\n')%
                                                 {'linpos':node_instance.linpos(),'mpath':self.mpathformat(record_definition[MPATH]),'field':field_definition[ID]})
