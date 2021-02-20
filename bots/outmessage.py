@@ -315,7 +315,7 @@ class Outmessage(message.Message):
                 if lenght < field_definition[MINLENGTH]:
                     self.add2errorlist(_('[F34]: Record "%(record)s" time field "%(field)s" too small (min %(min)s): "%(content)s".\n')%
                                         {'record':self.mpathformat(structure_record[MPATH]),'field':field_definition[ID],'content':value,'min':field_definition[MINLENGTH]})
-        elif isinstance(value, unicode): #only if text, not when a raw numeric value is given (putraw() json)
+        elif isinstance(value, basestring): #only if text, not when a raw numeric value is given (putraw() json)
             #~ if value[0] == '-':
                 #~ minussign = '-'
                 #~ absvalue = value[1:]
